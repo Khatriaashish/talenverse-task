@@ -1,33 +1,40 @@
 import React from 'react'
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import { NavLink } from 'react-router-dom';
+import "../../public/index.css"
+import logo from "../../public/logo.png"
 
-const Homeheading = () => {
+
+const Homeheading = ({theme="light"}) => {
     return (<>
-        <Navbar bg="light" data-bs-theme="light">
+        <Navbar
+            expand="lg"
+            className="bg-body-tertiary"
+            bg={theme} data-bs-theme={theme}>
+                
             <Container>
-                <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-                <Nav>
-                    <Nav.Link href="#home">Home</Nav.Link>
-                    <NavDropdown title="Resources" id="navbarScrollingDropdown">
-                        <NavDropdown.Item href="#action3">Resource 1</NavDropdown.Item>
-                        <NavDropdown.Item href="#action4">
-                            Resource 2
-                        </NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action5">
-                            Other resources
-                        </NavDropdown.Item>
-                    </NavDropdown>
-                    <Nav.Link href="#features">Our Products</Nav.Link>
-                    <Nav.Link href="#pricing">Contacts</Nav.Link>
-                </Nav>
-                <Nav className="float-end">
-                    <NavLink to="/signup" className="btn btn-sm btn-outline-primary me-2">Sign Up</NavLink>
-                    <NavLink to="/login" className={"btn btn-primary btn-sm"}>Login</NavLink>
-                </Nav>
+                <NavLink to="/">                        
+                    <img src={logo} className="d-block mx-lg-auto" alt="" loading="lazy" width={"100%"} />
+                </NavLink>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="me-auto">
+                        <NavLink to="/" className="nav-link">Home</NavLink>
+                        <NavLink to="/products" className="nav-link">Our Products</NavLink>
+                        <NavDropdown title="Resources" id="basic-nav-dropdown">
+                            <NavLink to="" className={"nav-link"}>something</NavLink>
+                            <NavLink to="" className={"nav-link"}>something</NavLink>
+                        </NavDropdown>
+                        <NavLink to="/contact" className="nav-link">Contact</NavLink>
+                    </Nav>
+                    <Nav className="float-end">
+                        <NavLink to="/signup" className={"nav-link text-primary px-4"}>SignUp</NavLink>
+                        <NavLink to="/login" className="btn btn-primary">Login</NavLink>
+                    </Nav>
+                </Navbar.Collapse>
             </Container>
         </Navbar>
+        <hr class="thin-horizontal-line"></hr>
     </>)
 }
 

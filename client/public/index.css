@@ -1,3 +1,27 @@
 .round{
     border-radius: 45%;
 }
+
+.thin-horizontal-line {
+    border-top: 1px solid #716e6e;
+    margin-top: 0px; 
+    margin-bottom: 0px; 
+  }
+
+  .bg-main{
+    background-color: #151B28;
+  }
+
+  .bg-color {
+    background-color: #1C2534;
+  }
+
+  .field-color {
+    background-color: #252D3C;
+    border-color: #252D3C; 
+}
+
+::placeholder {
+  color: #a09999 !important; /* Your desired color */
+}
+
