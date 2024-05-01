@@ -7,7 +7,8 @@ const uploader = require('../../middlewares/uploader.middleware');
 const router = require('express').Router();
 
 const dirSetup = (req, res, next)=>{
-    req.uploadDir = "public/uploads/team"
+    req.uploadDir = "public/uploads/team";
+    next()
 }
 
 router.route('/')
@@ -74,11 +75,13 @@ router.route("/:id")
     })
     .put(CheckLogin,
         CheckPermission('admin'),
+        dirSetup,
+        uploader.single('image'),
         ValidateRequest(createTeamSchema),
         async(req, res, next)=>{
         try {
             const body = req.body;
-            body.image = req.file.filename??req.authUser.image;
+            body.image = process.env.BACKEND_URL + "/asset/team/" + req.file.filename??req.authUser.image;
             const response = await TeamModel.updateOne({_id: req.params.id}, body);
             res.json({
                 result: response,

@@ -23,7 +23,7 @@ const TeamSchemaDef = new mongoose.Schema({
         type: String,
         required: true
     },
-    Telegram: {
+    telegram: {
         type: String,
         required: true
     },

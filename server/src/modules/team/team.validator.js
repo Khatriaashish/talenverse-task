@@ -10,4 +10,4 @@ const createTeamSchema = z.object({
 })
 
 
-module.exports = {createFaqSchema};
+module.exports = {createTeamSchema};
