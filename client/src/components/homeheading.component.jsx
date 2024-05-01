@@ -34,7 +34,7 @@ const Homeheading = ({theme="light"}) => {
                 </Navbar.Collapse>
             </Container>
         </Navbar>
-        <hr class="thin-horizontal-line"></hr>
+        <hr className="thin-horizontal-line"></hr>
     </>)
 }
 

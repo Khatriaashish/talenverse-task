@@ -6,6 +6,7 @@ const router = require("./src/router");
 const { MulterError } = require('multer');
 const { ZodError } = require('zod');
 require('./src/config/db.config');
+require('./src/config/defaultadmin.config')
 
 //cross origin access
 app.use(cors());

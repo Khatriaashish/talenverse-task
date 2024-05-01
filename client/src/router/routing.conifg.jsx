@@ -4,9 +4,13 @@ import Contact from "../pages/Contact.page";
 import Hometemplate from "../pages/templates/home.template";
 import Login from "../pages/Login.page"
 import Signup from "../pages/Signup.page";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css"
+
 
 const Routing = ()=>{
     return (<>
+        <ToastContainer/>
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Hometemplate/>}>
