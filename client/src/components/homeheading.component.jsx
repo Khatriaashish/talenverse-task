@@ -41,10 +41,10 @@ const Homeheading = ({theme="light"}) => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         <NavLink to="/" className="nav-link">Home</NavLink>
-                        <NavLink to="/products" className="nav-link">Our Products</NavLink>
+                        <NavLink to="/products" className="nav-link disabled">Our Products</NavLink>
                         <NavDropdown title="Resources" id="basic-nav-dropdown">
-                            <NavLink to="" className={"nav-link"}>something</NavLink>
-                            <NavLink to="" className={"nav-link"}>something</NavLink>
+                            <NavLink to="/something" className={"nav-link disabled"}>something</NavLink>
+                            <NavLink to="/something" className={"nav-link disabled"}>something</NavLink>
                         </NavDropdown>
                         <NavLink to="/contact" className="nav-link">Contact</NavLink>
                     </Nav>
