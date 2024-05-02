@@ -22,6 +22,24 @@ class ApiCall extends HttpService{
         }
     }
 
+    getLoggedInUser = async()=>{
+        try {
+            const response = await this.getRequest("v1/auth/me", {auth: true});
+            return response;
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    logout = async(data)=>{
+        try {
+            const response = await this.postRequest("v1/auth/logout", {}, {auth: true});
+            return response;
+        } catch (error) {
+            throw error;
+        }
+    }
+
     //contact
     sendContactMessage = async(data)=>{
         try {

@@ -15,7 +15,7 @@ const Signup = () => {
     const signUpSchema = Yup.object({
         name: Yup.string().min(2).max(50).required(),
         email: Yup.string().email().required(),
-        password: Yup.string().matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$/, "Password must have atleast 8 character, one uppercase, one lowercase, one digit and one unique character"),
+        password: Yup.string().matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$/, "Password must have atleast 8 character, one uppercase, one lowercase, one digit and one unique character").required(),
         confirmPassword: Yup.string().required().oneOf(
             [Yup.ref('password'), null], "Password doesn't match"
         )
@@ -43,6 +43,14 @@ const Signup = () => {
             setLoading(false)
         }
     }
+
+    useEffect(()=>{
+        let token = localStorage.getItem('_au');
+        let user = JSON.parse(localStorage.getItem("_user"));
+        if(token && user){
+            navigate('/admin')
+        }
+    }, [])
 
     return (<>
         <div className="container-fluid bg-main text-light py-5">

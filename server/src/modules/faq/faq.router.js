@@ -35,7 +35,10 @@ router.route('/')
                 const timeDifference = currentTime - createdTime;
                 let updatedAt;
     
-                if (timeDifference < 3600000) { // Less than an hour
+                if(timeDifference<60000){
+                    updatedAt = "now";
+                }
+                else if (timeDifference < 3600000) { // Less than an hour
                     updatedAt = Math.floor(timeDifference / 60000) + " minutes ago";
                 } else if (timeDifference < 86400000) { // Less than a day
                     updatedAt = Math.floor(timeDifference / 3600000) + " hours ago";
@@ -73,8 +76,10 @@ router.route("/:id")
                 const currentTime = new Date();
                 const timeDifference = currentTime - createdTime;
                 let updatedAt;
-    
-                if (timeDifference < 3600000) { // Less than an hour
+                if(timeDifference<60000){
+                    updatedAt = "now";
+                }
+                else if (timeDifference < 3600000) { // Less than an hour
                     updatedAt = Math.floor(timeDifference / 60000) + " minutes ago";
                 } else if (timeDifference < 86400000) { // Less than a day
                     updatedAt = Math.floor(timeDifference / 3600000) + " hours ago";

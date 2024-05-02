@@ -43,18 +43,18 @@ const FaqComponent = () => {
                     {
                         faqs ? <>
                             {faqs.map((row, ind)=>(
-                                <div class="accordion" id="accordionExample" key={ind}>
-                                    <div class="accordion-item">
-                                        <h2 class="accordion-header">
-                                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <div className="accordion" id="accordionExample" key={ind}>
+                                    <div className="accordion-item">
+                                        <h2 className="accordion-header">
+                                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                                 {row.question}
                                                 <div className="m-auto text-secondary">
                                                     {row.updatedAt}
                                                 </div>
                                             </button>
                                         </h2>
-                                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                            <div class="accordion-body">
+                                        <div id="collapseTwo" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                            <div className="accordion-body">
                                                 {row.answer}
                                             </div>
                                         </div>

@@ -1,11 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import { NavLink } from 'react-router-dom';
 import "../../public/index.css"
 import logo from "../../public/logo.png"
+import { toast } from "react-toastify";
+import apiCall from "../repository/api-call"
 
 
 const Homeheading = ({theme="light"}) => {
+    const [user, setUser] = useState({});
+
+    const getLoggedInUser = async()=>{
+        try {
+            const response = await apiCall.getLoggedInUser();
+            setUser(response.result);
+        } catch (error) {
+            toast.error(error.message);
+            localStorage.removeItem("_au");
+        }
+    }
+
+    useEffect(()=>{
+        const user = localStorage.getItem("_user");
+        const token = localStorage.getItem("_au");
+        if(user&&token){
+            getLoggedInUser();
+        }
+    }, [])
     return (<>
         <Navbar
             expand="lg"
@@ -28,8 +49,21 @@ const Homeheading = ({theme="light"}) => {
                         <NavLink to="/contact" className="nav-link">Contact</NavLink>
                     </Nav>
                     <Nav className="float-end">
-                        <NavLink to="/signup" className={"nav-link text-primary px-4"}>SignUp</NavLink>
-                        <NavLink to="/login" className="btn btn-primary">Login</NavLink>
+                        {
+                            user&&user.role?<>
+                                <NavDropdown title={user.name} id="basic-nav-dropdown">
+                                    {
+                                        user.role==='admin'?<>
+                                            <NavLink to="/admin" className={"nav-link"}>Manage</NavLink>
+                                        </>:<></>
+                                    }
+                                    <NavLink to="/logout" className={"nav-link"}>Logout</NavLink>
+                                </NavDropdown>
+                            </>:<>
+                                <NavLink to="/signup" className={"nav-link text-primary px-4"}>SignUp</NavLink>
+                                <NavLink to="/login" className="btn btn-primary">Login</NavLink>
+                            </>
+                        }
                     </Nav>
                 </Navbar.Collapse>
             </Container>

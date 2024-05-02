@@ -14,12 +14,12 @@ const CallToActionComponent = () => {
                         <h1 className="display-5">Welcome to your new digital reality that which will rock your world truly at all.</h1>
                     </Col>
                 </Row>
-                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center py-5">
+                <div className="d-grid gap-2 d-sm-flex justify-content-sm-center py-5">
                     <NavLink to={'/signup'}>
-                        <button type="button" class="btn btn-light text-primary btn-lg px-4 me-sm-3">Sign up</button>
+                        <button type="button" className="btn btn-light text-primary btn-lg px-4 me-sm-3">Sign up</button>
                     </NavLink>
                     <NavLink to={'/login'}>
-                        <button type="button" class="btn btn-info text-white btn-lg px-4">Log in</button>
+                        <button type="button" className="btn btn-info text-white btn-lg px-4">Log in</button>
                     </NavLink>
                 </div>
             </div>
