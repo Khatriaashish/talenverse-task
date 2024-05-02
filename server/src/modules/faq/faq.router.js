@@ -27,7 +27,7 @@ router.route('/')
     )
     .get(async(req, res, next)=>{
         try {
-            const response = await FAQModel.find();
+            const response = await FAQModel.find().sort({_id: "desc"});
 
             const updatedResponse = response.map(faq => {
                 const createdTime = new Date(faq.createdAt);

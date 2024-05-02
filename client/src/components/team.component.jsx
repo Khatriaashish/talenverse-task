@@ -46,10 +46,11 @@ const TeamComponent = () => {
                 </> : <>
                     {
                         team ? <>
+                            <div className="row" >
                             {
                                 team.map((row, ind) => (
-                                    <div className="row" key={ind}>
-                                        <div className="col-lg-4 px-2 text-secondary">
+                                    
+                                        <div key={ind} className="col-lg-4 px-2 text-secondary">
                                             <img src={row.image??'https://picsum.photos/id/1/560'} className="d-block mx-lg-auto" alt="" loading="lazy" width={"100%"} />
                                             <h3 className="fw-normal text-dark">{row.name}</h3>
                                             <p>{row.designation}</p>
@@ -60,9 +61,11 @@ const TeamComponent = () => {
                                                 <a href={row.telegram} target='_blank' className='text-decoration-none text-dark fs-4'><i className="fa-brands fa-telegram"></i></a>
                                             </div>
                                         </div>
-                                    </div>
+                                    
                                 ))
+                                
                             }
+                            </div>
                         </> : <>
                             <div className="text-center">
                                 No team member found

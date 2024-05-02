@@ -41,7 +41,7 @@ router.get('/', CheckLogin,
     CheckPermission('admin'),
     async(req, res, next)=>{
         try{
-            const response = await ContactModel.find();
+            const response = await ContactModel.find().sort({_id: "desc"});
             res.json({
                 result: response,
                 message: "All contact data fetched",

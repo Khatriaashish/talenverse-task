@@ -41,31 +41,31 @@ const FaqComponent = () => {
                     </div>
                 </> : <>
                     {
-                        faqs ? <>
-                            {faqs.map((row, ind)=>(
-                                <div className="accordion" id="accordionExample" key={ind}>
-                                    <div className="accordion-item">
-                                        <h2 className="accordion-header">
-                                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        faqs ? (
+                            <div className="accordion" id="accordionExample">
+                                {faqs.map((row, index) => (
+                                    <div className="accordion-item" key={index}>
+                                        <h2 className="accordion-header" id={`heading${index}`}>
+                                            <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target={`#collapse${index}`} aria-expanded="false" aria-controls={`collapse${index}`}>
                                                 {row.question}
                                                 <div className="m-auto text-secondary">
                                                     {row.updatedAt}
                                                 </div>
                                             </button>
                                         </h2>
-                                        <div id="collapseTwo" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                                        <div id={`collapse${index}`} className="accordion-collapse collapse" aria-labelledby={`heading${index}`} data-bs-parent="#accordionExample">
                                             <div className="accordion-body">
                                                 {row.answer}
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            ))}
-                        </> : <>
+                                ))}
+                            </div>
+                        ) : (
                             <div className="text-center">
                                 No faqs found
                             </div>
-                        </>
+                        )
                     }
                 </>
             }

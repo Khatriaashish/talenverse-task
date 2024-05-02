@@ -50,6 +50,26 @@ class ApiCall extends HttpService{
         }
     }
 
+    getAllContactMessage = async(data)=>{
+        try{
+            const response = await this.getRequest("v1/contact", {auth: true});
+            return response
+        }
+        catch(error){
+            throw error;
+        }
+    }
+
+    deleteContactMessage = async(id)=>{
+        try{
+            const response = await this.deleteRequest("v1/contact/"+id, {auth: true});
+            return response
+        }
+        catch(error){
+            throw error;
+        }
+    }
+
     //faq
     fetchFaq = async()=>{
         try {

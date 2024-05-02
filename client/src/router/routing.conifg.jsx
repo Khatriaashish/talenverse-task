@@ -11,6 +11,9 @@ import CMSTemplate from "../pages/templates/cms.template";
 import { Error404 } from "../pages/common/error.page";
 import Logout from "../pages/Logout";
 import * as faq from "../pages/cms/faq"
+import * as team from "../pages/cms/team"
+import ContactList from "../pages/cms/contact/contact-list.page";
+import Dashboard from "../pages/cms/dashboard/dashboard.component";
 
 
 const Routing = ()=>{
@@ -26,16 +29,18 @@ const Routing = ()=>{
                 </Route>
 
                 <Route path="/admin" element={<PermissionCheck accessBy={'admin'} Component={<CMSTemplate/>}/>}>
+                    <Route index element={<Dashboard/>}></Route>
                     <Route path="faq" element={<faq.FaqLayout/>}>
                         <Route index element={<faq.FaqList/>}/>
                         <Route path="create" element={<faq.FaqCreate/>}/>
                         <Route path=":id" element={<faq.FaqEdit/>}/>
                     </Route>
-                    {/* <Route path="faq" element={<banner.BannerLayout/>}>
-                        <Route index element={<banner.BannerList/>}/>
-                        <Route path="create" element={<banner.BannerCreate/>}/>
-                        <Route path=":id" element={<banner.BannerEdit/>}/>
-                    </Route> */}
+                    <Route path="team" element={<team.TeamLayout/>}>
+                        <Route index element={<team.TeamList/>}/>
+                        <Route path="create" element={<team.TeamCreate/>}/>
+                        <Route path=":id" element={<team.TeamEdit/>}/>
+                    </Route>
+                    <Route path="contact" element={<ContactList/>}></Route>
                 </Route>
                 <Route path="/logout" element={<Logout/>}/>
                 <Route path="*" element={<Error404/>}/>
