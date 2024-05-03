@@ -34,7 +34,7 @@ const Signup = () => {
         } catch (error) {
             console.log(error);
             toast.error(error.message);
-            except.response.data.result.map((obj)=>{
+            error.response.data.result.map((obj)=>{
                 const keys = Object.keys(obj);
                 setError(keys[0], {message: obj[keys[0]]});
             })
