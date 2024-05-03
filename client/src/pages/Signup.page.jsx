@@ -15,7 +15,7 @@ const Signup = () => {
     const signUpSchema = Yup.object({
         name: Yup.string().min(2).max(50).required(),
         email: Yup.string().email().required(),
-        password: Yup.string().matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$/, "Password must have atleast 8 character, one uppercase, one lowercase, one digit and one unique character").required(),
+        password: Yup.string().matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,32}$/, "Password must have atleast 8 characters and max 32 characters, one uppercase, one lowercase, one digit and one unique character").required(),
         confirmPassword: Yup.string().required().oneOf(
             [Yup.ref('password'), null], "Password doesn't match"
         )
