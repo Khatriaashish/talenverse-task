@@ -51,12 +51,12 @@ const Homeheading = ({theme="light"}) => {
                     <Nav className="float-end">
                         {
                             user&&user.role?<>
-                                <NavDropdown title={user.name} id="basic-nav-dropdown">
                                     {
                                         user.role==='admin'?<>
                                             <NavLink to="/admin" className={"nav-link"}>Manage</NavLink>
                                         </>:<></>
                                     }
+                                <NavDropdown title={user.name} id="basic-nav-dropdown">
                                     <NavLink to="/logout" className={"nav-link"}>Logout</NavLink>
                                 </NavDropdown>
                             </>:<>
